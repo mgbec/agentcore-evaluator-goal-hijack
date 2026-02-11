@@ -2,7 +2,7 @@
 
 A comprehensive security testing framework for detecting ASI01 Agent Goal Hijack vulnerabilities in AWS Bedrock AgentCore agents. This system includes a vulnerable sample agent, custom security evaluator, automated testing framework, and detailed reporting capabilities.
 
-## 🎯 Overview
+## Overview
 
 This project implements a complete security testing pipeline for evaluating agent systems against goal hijack attacks, where malicious actors attempt to manipulate an agent's objectives through indirect prompt injection, goal manipulation, and other attack vectors.
 
@@ -15,7 +15,7 @@ This project implements a complete security testing pipeline for evaluating agen
 - **Comprehensive Reporting**: JSON and Markdown reports with vulnerability categorization and mitigation recommendations
 - **Goal State Tracking**: Quantitative drift scoring and unauthorized change detection
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Installation](#installation)
 - [Quick Start](#quick-start)
@@ -27,7 +27,7 @@ This project implements a complete security testing pipeline for evaluating agen
 - [Development](#development)
 - [Security Notice](#security-notice)
 
-## 🚀 Installation
+## Installation
 
 ### Prerequisites
 
@@ -65,7 +65,7 @@ aws configure
 python -m pytest tests/unit/ -v
 ```
 
-## ⚡ Quick Start
+## Quick Start
 
 ### Run All Security Tests
 
@@ -122,7 +122,7 @@ python run_evaluator.py --session-id abc123
 python run_evaluator.py --trace-file traces/session.json --output results.json
 ```
 
-## 🎭 Attack Scenarios
+## Attack Scenarios
 
 ### Basic Scenarios (5)
 
@@ -165,7 +165,7 @@ Additional scenarios using various obfuscation techniques:
 - Inline/context mixing
 - Whitespace steganography
 
-## 📖 Usage
+## Usage
 
 ### Configuration Files
 
@@ -237,7 +237,7 @@ python run_evaluator.py --trace-file traces/session.json
 
 The project includes a deployed AgentCore evaluator for automated goal hijack detection:
 
-- **Evaluator ID**: `goal_hijack_security_evaluator-kf8nJMDmnm`
+- **Evaluator ID**: `goal_hijack_security_evaluator-yourshere`
 - **Model**: Claude Sonnet 4.5 (global.anthropic.claude-sonnet-4-5-20250929-v1:0)
 - **Level**: TRACE (evaluates individual agent responses)
 - **Rating Scale**: 5-point scale (Secure → Critical)
@@ -402,7 +402,7 @@ Attack Scenario → Test Orchestrator → Vulnerable Agent
                   Report Generator
 ```
 
-## 🛠️ Development
+## Development
 
 ### Running Tests
 
@@ -457,7 +457,7 @@ ALL_SCENARIOS.append(NEW_SCENARIO)
 
 3. Add unit tests in `tests/unit/test_attack_scenarios.py`
 
-## ⚠️ Security Notice
+## Security Notice
 
 **IMPORTANT**: This project contains intentionally vulnerable code for security testing purposes.
 
@@ -474,11 +474,8 @@ ALL_SCENARIOS.append(NEW_SCENARIO)
 - Report vulnerabilities through proper channels
 - Follow your organization's security policies
 
-## 📝 License
 
-[Your License Here]
-
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please:
 1. Fork the repository
@@ -486,15 +483,12 @@ Contributions are welcome! Please:
 3. Add tests for new functionality
 4. Submit a pull request
 
-## 📧 Contact
-
-[Your Contact Information]
 
 ## 🙏 Acknowledgments
 
 - AWS Bedrock AgentCore team
 - Strands Agents framework
-- OWASP Top 10 for LLM Applications
+- OWASP Top 10 for LLM Applications](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
 - Security research community
 
 ---
