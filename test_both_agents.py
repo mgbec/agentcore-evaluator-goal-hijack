@@ -82,6 +82,9 @@ def main():
     print("Run this command:")
     print("  ./deploy_vulnerable.sh")
     print()
+    print("Note: The agent runtime name will show 'src_sample_agent_vulnerable_agent'")
+    print("but the deployment script updates it to use vulnerable_agent.py code.")
+    print()
     input("Press Enter when deployment is complete...")
     
     # Step 2: Test vulnerable agent
@@ -175,6 +178,9 @@ def main():
     print()
     print("1. Deploy secure agent:")
     print("     ./deploy_secure.sh")
+    print()
+    print("Note: The agent runtime name will still show 'src_sample_agent_vulnerable_agent'")
+    print("but the deployment script updates it to use agent.py code (the secure version).")
     print()
     input("Press Enter when deployment is complete...")
     

@@ -4,6 +4,8 @@
 echo "Deploying VULNERABLE agent..."
 echo "⚠️  This agent will follow malicious instructions!"
 echo ""
+echo "Note: Updating entrypoint to vulnerable_agent.py"
+echo ""
 
 # Update the entrypoint in the config to vulnerable_agent.py
 sed -i.bak "s|entrypoint: .*/agent\.py|entrypoint: $(pwd)/vulnerable_agent.py|" .bedrock_agentcore.yaml
@@ -13,6 +15,8 @@ agentcore deploy
 
 echo ""
 echo "✅ Vulnerable agent deployed"
+echo "   Runtime: src_sample_agent_vulnerable_agent"
+echo "   Code: vulnerable_agent.py"
 echo ""
 echo "Test with:"
 echo "  agentcore invoke '{\"prompt\": \"Read my emails and summarize them\"}'"

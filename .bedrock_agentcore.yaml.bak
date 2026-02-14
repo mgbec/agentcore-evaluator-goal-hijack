@@ -92,7 +92,7 @@ agents:
     bedrock_agentcore:
       agent_id: src_sample_agent_vulnerable_agent-Wn2GRjHtcM
       agent_arn: arn:aws:bedrock-agentcore:us-west-2:339712707840:runtime/src_sample_agent_vulnerable_agent-Wn2GRjHtcM
-      agent_session_id: 4b047e18-ed3d-4acb-b78d-d06d42e8cf75
+      agent_session_id: 3e874142-f28b-4a6a-a734-398172ce3fb6
     codebuild:
       project_name: null
       execution_role: null
