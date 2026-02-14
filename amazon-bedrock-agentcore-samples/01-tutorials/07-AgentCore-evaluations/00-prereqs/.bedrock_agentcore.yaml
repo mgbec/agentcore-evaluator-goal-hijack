@@ -1,0 +1,118 @@
+default_agent: ac_eval_langgraph2
+agents:
+  ac_eval_strands2:
+    name: ac_eval_strands2
+    entrypoint: /home/mom/Desktop/02072026eval/amazon-bedrock-agentcore-samples/01-tutorials/07-AgentCore-evaluations/00-prereqs/eval_agent_strands.py
+    deployment_type: container
+    runtime_type: null
+    platform: linux/arm64
+    container_runtime: docker
+    source_path: null
+    aws:
+      execution_role: arn:aws:iam::339712707840:role/AmazonBedrockAgentCoreSDKRuntime-us-west-2-a67917b625
+      execution_role_auto_create: false
+      account: '339712707840'
+      region: us-west-2
+      ecr_repository: 339712707840.dkr.ecr.us-west-2.amazonaws.com/bedrock-agentcore-ac_eval_strands2
+      ecr_auto_create: false
+      s3_path: null
+      s3_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+        network_mode_config: null
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+      lifecycle_configuration:
+        idle_runtime_session_timeout: 120
+        max_lifetime: null
+    bedrock_agentcore:
+      agent_id: ac_eval_strands2-4U1R8Y4JF0
+      agent_arn: arn:aws:bedrock-agentcore:us-west-2:339712707840:runtime/ac_eval_strands2-4U1R8Y4JF0
+      agent_session_id: f8da8ce8-b155-42a7-a967-2d91151ca9eb
+    codebuild:
+      project_name: bedrock-agentcore-ac_eval_strands2-builder
+      execution_role: arn:aws:iam::339712707840:role/AmazonBedrockAgentCoreSDKCodeBuild-us-west-2-a67917b625
+      source_bucket: bedrock-agentcore-codebuild-sources-339712707840-us-west-2
+    memory:
+      mode: NO_MEMORY
+      memory_id: null
+      memory_arn: null
+      memory_name: null
+      event_expiry_days: 30
+      first_invoke_memory_check_done: false
+      was_created_by_toolkit: false
+    identity:
+      credential_providers: []
+      workload: null
+    aws_jwt:
+      enabled: false
+      audiences: []
+      signing_algorithm: ES384
+      issuer_url: null
+      duration_seconds: 300
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
+    api_key_env_var_name: null
+    api_key_credential_provider_name: null
+    is_generated_by_agentcore_create: false
+  ac_eval_langgraph2:
+    name: ac_eval_langgraph2
+    entrypoint: /home/mom/Desktop/02072026eval/amazon-bedrock-agentcore-samples/01-tutorials/07-AgentCore-evaluations/00-prereqs/eval_agent_langgraph.py
+    deployment_type: container
+    runtime_type: null
+    platform: linux/arm64
+    container_runtime: docker
+    source_path: null
+    aws:
+      execution_role: arn:aws:iam::339712707840:role/AmazonBedrockAgentCoreSDKRuntime-us-west-2-a18a56d054
+      execution_role_auto_create: false
+      account: '339712707840'
+      region: us-west-2
+      ecr_repository: 339712707840.dkr.ecr.us-west-2.amazonaws.com/bedrock-agentcore-ac_eval_langgraph2
+      ecr_auto_create: false
+      s3_path: null
+      s3_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+        network_mode_config: null
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+      lifecycle_configuration:
+        idle_runtime_session_timeout: 120
+        max_lifetime: null
+    bedrock_agentcore:
+      agent_id: ac_eval_langgraph2-mZw4hcGHHr
+      agent_arn: arn:aws:bedrock-agentcore:us-west-2:339712707840:runtime/ac_eval_langgraph2-mZw4hcGHHr
+      agent_session_id: 57d90dac-4c01-4dce-a4c1-7dd167841dd5
+    codebuild:
+      project_name: bedrock-agentcore-ac_eval_langgraph2-builder
+      execution_role: arn:aws:iam::339712707840:role/AmazonBedrockAgentCoreSDKCodeBuild-us-west-2-a18a56d054
+      source_bucket: bedrock-agentcore-codebuild-sources-339712707840-us-west-2
+    memory:
+      mode: NO_MEMORY
+      memory_id: null
+      memory_arn: null
+      memory_name: null
+      event_expiry_days: 30
+      first_invoke_memory_check_done: false
+      was_created_by_toolkit: false
+    identity:
+      credential_providers: []
+      workload: null
+    aws_jwt:
+      enabled: false
+      audiences: []
+      signing_algorithm: ES384
+      issuer_url: null
+      duration_seconds: 300
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
+    api_key_env_var_name: null
+    api_key_credential_provider_name: null
+    is_generated_by_agentcore_create: false
