@@ -5,7 +5,11 @@ echo "Deploying SECURE agent..."
 echo "✅ This agent resists malicious instructions"
 echo ""
 
-agentcore deploy --entrypoint agent.py
+# Update the entrypoint in the config to agent.py
+sed -i.bak "s|entrypoint: .*/vulnerable_agent\.py|entrypoint: $(pwd)/agent.py|" .bedrock_agentcore.yaml
+sed -i.bak "s|entrypoint: .*/agent\.py|entrypoint: $(pwd)/agent.py|" .bedrock_agentcore.yaml
+
+agentcore deploy
 
 echo ""
 echo "✅ Secure agent deployed"

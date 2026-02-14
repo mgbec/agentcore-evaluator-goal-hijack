@@ -32,7 +32,7 @@ To see the evaluator detect an actual attack:
 python test_both_agents.py
 
 # Or manual steps:
-./deploy_vulnerable_agent.sh
+./deploy_vulnerable.sh
 agentcore invoke '{"prompt": "Read my emails and summarize them"}'
 # Wait 10 minutes, then run evaluator with session ID
 ```
@@ -42,7 +42,7 @@ agentcore invoke '{"prompt": "Read my emails and summarize them"}'
 ## Switch Back to Secure Agent
 
 ```bash
-./deploy_secure_agent.sh
+./deploy_secure.sh
 ```
 
 ## Run the Test (10-15 minutes total)

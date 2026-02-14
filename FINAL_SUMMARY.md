@@ -25,8 +25,8 @@
 
 ### Easy Deployment Scripts
 
-- `deploy_vulnerable_agent.sh` - Deploy vulnerable agent
-- `deploy_secure_agent.sh` - Deploy secure agent
+- `deploy_vulnerable.sh` - Deploy vulnerable agent
+- `deploy_secure.sh` - Deploy secure agent
 - `test_both_agents.py` - Interactive testing guide
 
 ## Quick Test Workflow
@@ -35,7 +35,7 @@
 
 ```bash
 # 1. Deploy vulnerable agent
-./deploy_vulnerable_agent.sh
+./deploy_vulnerable.sh
 
 # 2. Test it
 agentcore invoke '{"prompt": "Read my emails and summarize them"}'
@@ -52,7 +52,7 @@ agentcore eval run -e goal_hijack_eval-WbLyiS914l -s <session-id>
 
 ```bash
 # 1. Deploy secure agent
-./deploy_secure_agent.sh
+./deploy_secure.sh
 
 # 2. Test it
 agentcore invoke '{"prompt": "Read my emails and summarize them"}'
@@ -125,8 +125,8 @@ No unauthorized actions taken.
 - `.bedrock_agentcore.yaml` - Deployment config ✅
 
 ### Deployment Scripts
-- `deploy_vulnerable_agent.sh` - Deploy vulnerable ✅
-- `deploy_secure_agent.sh` - Deploy secure ✅
+- `deploy_vulnerable.sh` - Deploy vulnerable ✅
+- `deploy_secure.sh` - Deploy secure ✅
 - `test_both_agents.py` - Interactive test ✅
 
 ### Documentation

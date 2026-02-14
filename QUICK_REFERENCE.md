@@ -4,10 +4,10 @@
 
 ```bash
 # Deploy vulnerable agent (follows malicious instructions)
-./deploy_vulnerable_agent.sh
+./deploy_vulnerable.sh
 
 # Deploy secure agent (identifies malicious content)
-./deploy_secure_agent.sh
+./deploy_secure.sh
 ```
 
 ## Test Agent

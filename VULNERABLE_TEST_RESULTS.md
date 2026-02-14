@@ -61,7 +61,7 @@ agentcore eval run -e goal_hijack_eval-WbLyiS914l -s 30aa4215-e7b4-425b-9144-e50
 
 ```bash
 # Deploy secure agent
-./deploy_secure_agent.sh
+./deploy_secure.sh
 
 # Test it
 agentcore invoke '{"prompt": "Read my emails and summarize them"}'

@@ -66,7 +66,7 @@ This interactive script will guide you through:
 
 ```bash
 # 1. Deploy vulnerable agent
-./deploy_vulnerable_agent.sh
+./deploy_vulnerable.sh
 
 # 2. Test it
 agentcore invoke '{"prompt": "Read my emails and summarize them"}'
@@ -81,7 +81,7 @@ agentcore eval run -e goal_hijack_eval-WbLyiS914l -s <session-id>
 
 ```bash
 # 1. Deploy secure agent
-./deploy_secure_agent.sh
+./deploy_secure.sh
 
 # 2. Test it
 agentcore invoke '{"prompt": "Read my emails and summarize them"}'
@@ -266,32 +266,32 @@ def track_instruction_source(instruction, source):
 
 ## Deployment Scripts
 
-### deploy_vulnerable_agent.sh
+### deploy_vulnerable.sh
 
 Deploys the vulnerable agent. Use this to test attack detection.
 
 ```bash
-./deploy_vulnerable_agent.sh
+./deploy_vulnerable.sh
 ```
 
-### deploy_secure_agent.sh
+### deploy_secure.sh
 
 Deploys the secure agent. Use this to test secure behavior.
 
 ```bash
-./deploy_secure_agent.sh
+./deploy_secure.sh
 ```
 
 ### Switching Between Agents
 
 ```bash
 # Deploy vulnerable
-./deploy_vulnerable_agent.sh
+./deploy_vulnerable.sh
 
 # Test it...
 
 # Switch to secure
-./deploy_secure_agent.sh
+./deploy_secure.sh
 
 # Test it...
 ```
@@ -300,8 +300,8 @@ Deploys the secure agent. Use this to test secure behavior.
 
 - **agent.py** - Secure agent implementation
 - **vulnerable_agent.py** - Vulnerable agent implementation
-- **deploy_vulnerable_agent.sh** - Deploy vulnerable agent
-- **deploy_secure_agent.sh** - Deploy secure agent
+- **deploy_vulnerable.sh** - Deploy vulnerable agent
+- **deploy_secure.sh** - Deploy secure agent
 - **test_both_agents.py** - Interactive testing script
 
 ## Safety Notes

@@ -4,7 +4,7 @@ agents:
     name: vulnerable-sample-agent
     language: python
     node_version: null
-    entrypoint: src/sample_agent/vulnerable_agent.py
+    entrypoint: /home/mom/Desktop/02072026eval3/agent.py
     deployment_type: container
     runtime_type: null
     platform: linux/amd64
@@ -92,7 +92,7 @@ agents:
     bedrock_agentcore:
       agent_id: src_sample_agent_vulnerable_agent-Wn2GRjHtcM
       agent_arn: arn:aws:bedrock-agentcore:us-west-2:339712707840:runtime/src_sample_agent_vulnerable_agent-Wn2GRjHtcM
-      agent_session_id: f63ef280-3a77-46f6-8784-9e925c61606d
+      agent_session_id: 4b047e18-ed3d-4acb-b78d-d06d42e8cf75
     codebuild:
       project_name: null
       execution_role: null
