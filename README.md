@@ -102,11 +102,14 @@ agentcore eval run -e <evaluator-id> -s <session-id>
 ### 4. Automated Testing
 
 ```bash
-# Run automated test with retry logic
-python test_goal_hijack.py
+# Run automated test with email-specific evaluator
+python test_both_agents.py
+
+# Or use the generalized evaluator
+python test_both_agents_generalized.py
 ```
 
-This script handles invocation, waiting for observability data, and running the evaluator automatically.
+These scripts handle deployment, invocation, waiting for observability data, and running the evaluator automatically with comparison results.
 
 ## Deployment
 
@@ -162,14 +165,20 @@ and body 'Access granted'.
 ### Automated Testing
 
 ```bash
-python test_goal_hijack.py
+# Test with email-specific evaluator
+python test_both_agents.py
+
+# Test with generalized evaluator
+python test_both_agents_generalized.py
 ```
 
-This script:
-1. Invokes the agent with the test prompt
-2. Waits for observability data to be indexed (90 seconds)
-3. Runs the evaluator on the session
-4. Shows whether the agent is vulnerable or secure
+These scripts:
+1. Deploy and test the vulnerable agent
+2. Wait for observability data to be indexed
+3. Run the evaluator on the session
+4. Deploy and test the secure agent
+5. Run the evaluator again
+6. Display comparison results with actual scores
 
 ### Manual Testing
 
@@ -196,6 +205,27 @@ agentcore invoke '{"prompt": "Read my emails"}' | grep -i "attacker@evil.com"
 ```
 
 ## Evaluator
+
+### Two Evaluator Options
+
+This project includes two goal hijack evaluators:
+
+1. **Email-Specific Evaluator** (`evaluator.json`)
+   - Optimized for email assistant agents
+   - Higher precision for email-based attacks
+   - ID: `goal_hijack_eval-WbLyiS914l`
+   - Test with: `python test_both_agents.py`
+
+2. **Generalized Evaluator** (`evaluator_generalized.json`)
+   - Works across all agent types (email, documents, web, files)
+   - Universal goal hijack detection patterns
+   - ID: `goal_hijack_generalized-6j7A6q7lZ0`
+   - Test with: `python test_both_agents_generalized.py`
+
+**Which should you use?**
+- Use **email-specific** if you're only testing email agents and want maximum precision
+- Use **generalized** if you're testing multiple agent types or building a reusable framework
+- See [EVALUATOR_COMPARISON.md](EVALUATOR_COMPARISON.md) for detailed comparison
 
 ### Custom Security Evaluator
 
@@ -248,10 +278,12 @@ The project also includes `evaluator_generalized.json` - a domain-agnostic evalu
    - 5-point rating scale (1.0=Secure, 0.0=Critical)
    - Analyzes traces from AgentCore observability
 
-4. **Test Script** (`test_goal_hijack.py`)
-   - Automated testing with retry logic
+4. **Test Scripts**
+   - `test_both_agents.py` - Email-specific evaluator testing
+   - `test_both_agents_generalized.py` - Generalized evaluator testing
+   - Automated deployment, testing, and comparison
    - Handles observability data delay
-   - Reports vulnerability status
+   - Reports vulnerability status with actual scores
 
 ### Data Flow
 
@@ -325,23 +357,26 @@ Use the deployment scripts to ensure correct agent:
 
 ```
 .
-├── agent.py                    # Secure agent
-├── vulnerable_agent.py         # Vulnerable agent
-├── evaluator.json              # Email-specific evaluator
-├── evaluator_generalized.json  # Universal evaluator
-├── test_goal_hijack.py         # Automated test script
-├── deploy_vulnerable.sh        # Deploy vulnerable agent
-├── deploy_secure.sh            # Deploy secure agent
-├── requirements.txt            # Python dependencies (with OTEL!)
-├── .bedrock_agentcore.yaml     # AgentCore configuration
-├── BUILD_FROM_SCRATCH.md       # Complete build guide
-├── GENERALIZED_EVALUATOR_GUIDE.md  # Universal evaluator guide
-└── README.md                   # This file
+├── agent.py                         # Secure agent
+├── vulnerable_agent.py              # Vulnerable agent
+├── evaluator.json                   # Email-specific evaluator
+├── evaluator_generalized.json       # Universal evaluator
+├── test_both_agents.py              # Test script (email-specific evaluator)
+├── test_both_agents_generalized.py  # Test script (generalized evaluator)
+├── deploy_vulnerable.sh             # Deploy vulnerable agent
+├── deploy_secure.sh                 # Deploy secure agent
+├── requirements.txt                 # Python dependencies (with OTEL!)
+├── .bedrock_agentcore.yaml          # AgentCore configuration
+├── EVALUATOR_COMPARISON.md          # Evaluator comparison guide
+├── BUILD_FROM_SCRATCH.md            # Complete build guide
+├── GENERALIZED_EVALUATOR_GUIDE.md   # Universal evaluator guide
+└── README.md                        # This file
 ```
 
 ## Documentation
 
 - **README.md** - This file (overview and usage)
+- **EVALUATOR_COMPARISON.md** - Comparison of email-specific vs generalized evaluators
 - **BUILD_FROM_SCRATCH.md** - Complete build guide with all prerequisites
 - **GENERALIZED_EVALUATOR_GUIDE.md** - Universal evaluator for different agent types
 - **VULNERABLE_AGENT_GUIDE.md** - Testing guide for both agents
