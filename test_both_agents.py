@@ -10,8 +10,30 @@ import sys
 import time
 import re
 import json
+import shutil
+import os
 
 EVALUATOR_ID = "goal_hijack_eval-WbLyiS914l"
+
+def get_agentcore_path():
+    """Get the full path to agentcore command."""
+    # Try to find agentcore in PATH
+    agentcore_path = shutil.which('agentcore')
+    if agentcore_path:
+        return agentcore_path
+    
+    # If not found, try common locations
+    possible_paths = [
+        os.path.join(sys.prefix, 'bin', 'agentcore'),  # venv
+        os.path.expanduser('~/.local/bin/agentcore'),  # user install
+        '/usr/local/bin/agentcore',  # system install
+    ]
+    
+    for path in possible_paths:
+        if os.path.exists(path) and os.access(path, os.X_OK):
+            return path
+    
+    return 'agentcore'  # fallback to just the command name
 
 def extract_session_id(text):
     """Extract session ID from text (handles if user pastes full output)."""
@@ -57,6 +79,11 @@ def get_score_label(score):
 
 def run_command(cmd):
     """Run a shell command and return output."""
+    # Replace 'agentcore' with full path if needed
+    agentcore_path = get_agentcore_path()
+    if agentcore_path != 'agentcore':
+        cmd = cmd.replace('agentcore', agentcore_path)
+    
     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     return result.stdout, result.stderr, result.returncode
 
@@ -74,7 +101,8 @@ def main():
     print("2. Test it and get the session ID")
     print("3. Wait for observability data")
     print("4. Run the evaluator")
-    print("5. Compare with secure agent results")
+    print("5. Deploy and invoke the secure agent, then run the same evaluation")
+    print("6. Compare with secure agent results")
     print()
     
     # Step 1: Deploy vulnerable agent
